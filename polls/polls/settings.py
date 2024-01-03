@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,11 +43,11 @@ INSTALLED_APPS = [
 DATABASES={
     'default':{
         'ENGINE':'django.db.backends.postgresql',
-        'NAME':'polls',
-        'USER':'njsaugat',
-        'PASSWORD':'CLEB12E078',
-        'HOST':'localhost',
-        'PORT':'5432'
+        'NAME':os.environ.get("DATABSE_NAME"),
+        'USER':os.environ.get("DATABSE_USER"),
+        'PASSWORD':os.environ.get("DATABSE_PASSWORD"),
+        'HOST':os.environ.get("DATABSE_HOST"),
+        'PORT':os.environ.get("DATABSE_PORT")
     }
 }
 
